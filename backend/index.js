@@ -50,7 +50,7 @@ io.on('connection', (socket) => {
         socket.disconnect();
         return;
     }
-    // console.log('A user connected:', socket.user);
+    console.log('A user connected:', socket.user);
     const interval = setInterval(() => {
         try {
             socket.emit('realdata', generateRandomData());
@@ -61,7 +61,7 @@ io.on('connection', (socket) => {
 
     socket.on('disconnect', () => {
         clearInterval(interval);
-        // console.log('User disconnected:', socket.user);
+        console.log('User disconnected:', socket.user);
     });
 });
 

@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -39,7 +40,8 @@ const Navbar = () => {
           <button 
             onClick={() => {
               localStorage.removeItem('token');
-              window.location.reload(); 
+              navigate('/');
+              // window.location.reload(); 
             }} 
             className="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded transition-colors duration-200"
           >

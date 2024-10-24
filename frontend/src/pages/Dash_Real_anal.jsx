@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
 import { realdata } from '../../data2';
-import LineGraph from '../components/line';
+import LineGraph from '../components/Line'
 import Piechart from '../components/Piechart';
 import Barchart from '../components/Barchart';
 import RadarChart from '../components/Radarchart';
