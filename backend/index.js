@@ -5,6 +5,7 @@ const countryroutes = require('./routes/countryroute');
 const mongoose = require('mongoose');
 const { Server } = require("socket.io");
 const cors = require('cors');
+const path = require('path');
 const { realdata } = require('./models/Livetimedata');
 const { getRandomValue } = require('./utils/random');
 const {authenticateSocket} = require('./middleware/isauth')
@@ -65,6 +66,14 @@ io.on('connection', (socket) => {
         // console.log('User disconnected:', socket.user);
     });
 });
+
+
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+  });
 
 mongoose.connect(process.env.MONGODB_PATH).then(() => {
     console.log('Connected to MongoDB');
