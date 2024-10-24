@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState,useEffect } from 'react';
 import axios from 'axios';
-import { replace, useNavigate } from 'react-router-dom';
+import { Link, replace, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -68,7 +68,7 @@ const Login = () => {
           </button>
         </form>
         <p className="mt-4 text-sm text-center">
-          Do not have an account? <a href="/signup" className="text-blue-400">Sign Up</a>
+          Do not have an account? <Link to="/signup" className="text-blue-400">Sign Up</Link>
         </p>
       </div>
     </div>

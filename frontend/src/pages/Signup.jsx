@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
+// /* eslint-disable no-undef */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -107,7 +107,7 @@ const Signup = () => {
           </button>
         </form>
         <p className="mt-4 text-sm text-center">
-          Already have an account? <a href="/login" className="text-blue-400">Login</a>
+          Already have an account? <Link to="/login" className="text-blue-400">Login</Link>
         </p>
         {/* <p>{import.meta.env.VITE_BACKEND_URL}</p> */}
       </div>
