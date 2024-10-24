@@ -13,13 +13,13 @@ const httpServer = createServer(app);
 
 const io = new Server(httpServer, {
     cors: {
-        origin: process.env.NODE_ENV === 'production' ? 'https://yourfrontenddomain.com' : '*',
+        origin: process.env.NODE_ENV === 'production' ? ['https://yourfrontenddomain.com', 'http://localhost:5173'] : '*',
         methods: ["GET", "POST", "PUT", "PATCH", "DELETE"]
     }
 });
 
 const corsOptions = {
-    origin: process.env.NODE_ENV === 'production' ? 'https://yourfrontenddomain.com' : '*',
+    origin: process.env.NODE_ENV === 'production' ? ['https://yourfrontenddomain.com', 'http://localhost:5173'] : '*',
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
 };
 
