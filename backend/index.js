@@ -13,18 +13,19 @@ const httpServer = createServer(app);
 
 const io = new Server(httpServer, {
     cors: {
-        origin: '*',
+        origin: process.env.NODE_ENV === 'production' ? 'https://dashboard-web-frontend.onrender.com' : '*',
         methods: ["GET", "POST", "PUT", "PATCH", "DELETE"]
     }
 });
 
 const corsOptions = {
-    origin:  '*',
+    origin: process.env.NODE_ENV === 'production' ? 'https://dashboard-web-frontend.onrender.com' : '*',
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
 };
 
 app.use(cors(corsOptions));
 app.use(express.json());
+
 
 
 
@@ -50,7 +51,7 @@ io.on('connection', (socket) => {
         socket.disconnect();
         return;
     }
-    console.log('A user connected:', socket.user);
+    // console.log('A user connected:', socket.user);
     const interval = setInterval(() => {
         try {
             socket.emit('realdata', generateRandomData());
@@ -61,7 +62,7 @@ io.on('connection', (socket) => {
 
     socket.on('disconnect', () => {
         clearInterval(interval);
-        console.log('User disconnected:', socket.user);
+        // console.log('User disconnected:', socket.user);
     });
 });
 
